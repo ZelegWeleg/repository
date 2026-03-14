@@ -1,0 +1,1114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jon Selig — Comedy Writing for Sales Teams</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0f0d0a;
+    --paper: #f5f0e8;
+    --gold: #c8922a;
+    --gold-light: #e8b84b;
+    --red: #c0392b;
+    --cream: #faf7f2;
+    --muted: #7a7060;
+    --rule: #d4c9b0;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ── MASTHEAD ── */
+  .masthead {
+    background: var(--ink);
+    color: var(--paper);
+    text-align: center;
+    padding: 12px 24px;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+
+  /* ── NAV ── */
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 60px;
+    border-bottom: 1px solid var(--rule);
+    background: var(--cream);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+  }
+  .nav-logo span { color: var(--gold); }
+  .nav-links { display: flex; gap: 36px; list-style: none; }
+  .nav-links a {
+    font-size: 0.82rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--muted);
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--ink); }
+  .nav-cta {
+    background: var(--gold);
+    color: white;
+    padding: 10px 24px;
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background 0.2s;
+  }
+  .nav-cta:hover { background: var(--ink); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 92vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 0;
+    padding: 0;
+    background: var(--cream);
+    border-bottom: 1px solid var(--rule);
+  }
+  .hero-left {
+    padding: 80px 60px 80px 60px;
+    border-right: 1px solid var(--rule);
+  }
+  .hero-kicker {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 28px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .hero-kicker::before {
+    content: '';
+    display: block;
+    width: 32px;
+    height: 1px;
+    background: var(--gold);
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.6rem, 5vw, 4.2rem);
+    line-height: 1.08;
+    font-weight: 900;
+    margin-bottom: 32px;
+    color: var(--ink);
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--gold);
+  }
+  .hero-sub {
+    font-size: 1.05rem;
+    color: #4a4438;
+    max-width: 480px;
+    margin-bottom: 44px;
+    line-height: 1.8;
+  }
+  .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; align-items: center; }
+  .btn-primary {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 16px 36px;
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: 500;
+    display: inline-block;
+    transition: all 0.2s;
+  }
+  .btn-primary:hover { background: var(--gold); }
+  .btn-secondary {
+    border: 1px solid var(--rule);
+    padding: 16px 36px;
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--ink);
+    font-weight: 500;
+    display: inline-block;
+    transition: all 0.2s;
+  }
+  .btn-secondary:hover { border-color: var(--ink); }
+
+  .hero-right {
+    padding: 80px 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 32px;
+    position: relative;
+  }
+  .hero-right::after {
+    content: '"';
+    font-family: 'Playfair Display', serif;
+    font-size: 26rem;
+    color: var(--rule);
+    position: absolute;
+    top: -60px;
+    left: -40px;
+    line-height: 1;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .hero-stat {
+    position: relative;
+    z-index: 1;
+    border-left: 3px solid var(--gold);
+    padding-left: 24px;
+  }
+  .hero-stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 900;
+    color: var(--ink);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .hero-stat-label {
+    font-size: 0.85rem;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+  .hero-divider { width: 100%; height: 1px; background: var(--rule); }
+
+  /* ── SECTION BASE ── */
+  section { padding: 100px 60px; }
+  .section-kicker {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .section-kicker::before {
+    content: '';
+    display: block;
+    width: 28px;
+    height: 1px;
+    background: var(--gold);
+  }
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 20px;
+  }
+  .section-intro {
+    font-size: 1.05rem;
+    color: #4a4438;
+    max-width: 640px;
+    line-height: 1.8;
+    margin-bottom: 60px;
+  }
+
+  /* ── PROBLEMS ── */
+  .problems { background: var(--ink); color: var(--paper); }
+  .problems .section-kicker { color: var(--gold-light); }
+  .problems .section-kicker::before { background: var(--gold-light); }
+  .problems h2 { color: var(--paper); }
+  .problems .section-intro { color: #b0a898; }
+
+  .problems-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: #2a2520;
+    border: 1px solid #2a2520;
+    margin-top: 60px;
+  }
+  .problem-item {
+    background: var(--ink);
+    padding: 36px 40px;
+    transition: background 0.2s;
+  }
+  .problem-item:hover { background: #1a1712; }
+  .problem-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--gold);
+    letter-spacing: 0.15em;
+    margin-bottom: 14px;
+  }
+  .problem-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--paper);
+    margin-bottom: 10px;
+    line-height: 1.3;
+  }
+  .problem-desc {
+    font-size: 0.88rem;
+    color: #8a8070;
+    line-height: 1.7;
+  }
+
+  .cost-bar {
+    background: var(--red);
+    color: white;
+    padding: 56px 60px;
+    margin-top: 80px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 40px;
+    align-items: start;
+  }
+  .cost-bar-intro {
+    grid-column: span 3;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    font-style: italic;
+    margin-bottom: 20px;
+    line-height: 1.35;
+  }
+  .cost-item-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    opacity: 0.7;
+    margin-bottom: 8px;
+  }
+  .cost-item-text {
+    font-size: 0.92rem;
+    line-height: 1.6;
+    opacity: 0.92;
+  }
+
+  /* ── ABOUT ── */
+  .about {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    padding: 0;
+    border-bottom: 1px solid var(--rule);
+    background: var(--cream);
+  }
+  .about-img {
+    background: #ddd5c3;
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-right: 1px solid var(--rule);
+    position: relative;
+    overflow: hidden;
+  }
+  .about-img-placeholder {
+    text-align: center;
+    color: var(--muted);
+  }
+  .about-img-placeholder .initials {
+    font-family: 'Playfair Display', serif;
+    font-size: 7rem;
+    font-weight: 900;
+    color: #c4b89a;
+    line-height: 1;
+    display: block;
+  }
+  .about-img-placeholder p {
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #a09580;
+    margin-top: 12px;
+  }
+  .about-content {
+    padding: 80px 60px;
+  }
+  .about-content h2 { margin-bottom: 24px; }
+  .about-body {
+    font-size: 0.98rem;
+    color: #4a4438;
+    line-height: 1.85;
+    margin-bottom: 20px;
+  }
+  .about-credentials {
+    margin-top: 40px;
+    padding-top: 36px;
+    border-top: 1px solid var(--rule);
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .credential {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    font-size: 0.88rem;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+  .credential-icon {
+    color: var(--gold);
+    font-size: 1rem;
+    margin-top: 2px;
+    flex-shrink: 0;
+  }
+
+  /* ── SERVICES ── */
+  .services { background: var(--paper); }
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+  }
+  .service-card {
+    background: var(--cream);
+    padding: 48px 40px;
+    position: relative;
+    transition: background 0.2s;
+  }
+  .service-card:hover { background: white; }
+  .service-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 20px;
+    display: block;
+  }
+  .service-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    color: var(--ink);
+  }
+  .service-desc {
+    font-size: 0.88rem;
+    color: var(--muted);
+    line-height: 1.75;
+    margin-bottom: 28px;
+  }
+  .service-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .service-list li {
+    font-size: 0.83rem;
+    color: #4a4438;
+    padding-left: 18px;
+    position: relative;
+    line-height: 1.5;
+  }
+  .service-list li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--gold);
+    font-size: 0.75rem;
+  }
+  .service-featured {
+    background: var(--ink);
+    color: var(--paper);
+  }
+  .service-featured:hover { background: #1a1712; }
+  .service-featured .service-title { color: var(--paper); }
+  .service-featured .service-desc { color: #8a8070; }
+  .service-featured .service-list li { color: #c0b8a8; }
+  .service-badge {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: var(--gold);
+    color: white;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 5px 10px;
+  }
+
+  /* ── METHODOLOGY ── */
+  .methodology {
+    background: var(--cream);
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+  .method-steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    border: 1px solid var(--rule);
+    background: var(--rule);
+    margin-top: 60px;
+  }
+  .method-step {
+    background: var(--cream);
+    padding: 44px 36px;
+    position: relative;
+  }
+  .step-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem;
+    font-weight: 900;
+    color: var(--rule);
+    line-height: 1;
+    margin-bottom: 20px;
+  }
+  .step-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+  .step-desc {
+    font-size: 0.83rem;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+
+  /* ── TESTIMONIALS ── */
+  .testimonials { background: var(--ink); color: var(--paper); }
+  .testimonials .section-kicker { color: var(--gold-light); }
+  .testimonials .section-kicker::before { background: var(--gold-light); }
+  .testimonials h2 { color: var(--paper); }
+  .testimonials .section-intro { color: #8a8070; }
+
+  .testi-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 60px;
+  }
+  .testi-card {
+    border: 1px solid #2a2520;
+    padding: 36px 32px;
+    position: relative;
+  }
+  .testi-quote-mark {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    color: var(--gold);
+    line-height: 0.8;
+    margin-bottom: 16px;
+    display: block;
+  }
+  .testi-text {
+    font-size: 0.9rem;
+    color: #c0b8a8;
+    line-height: 1.8;
+    font-style: italic;
+    margin-bottom: 24px;
+  }
+  .testi-attr {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    color: var(--gold);
+    text-transform: uppercase;
+  }
+  .testi-attr span { display: block; color: #5a5248; margin-top: 4px; }
+
+  /* ── OUTCOMES ── */
+  .outcomes { background: var(--paper); }
+  .outcomes-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+    margin-top: 60px;
+  }
+  .outcome-item {
+    background: var(--cream);
+    padding: 44px 48px;
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+    border-bottom: 1px solid var(--rule);
+  }
+  .outcome-check {
+    width: 32px;
+    height: 32px;
+    border: 2px solid var(--gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: var(--gold);
+    font-size: 0.8rem;
+    margin-top: 4px;
+  }
+  .outcome-text { font-size: 0.93rem; color: #3a3428; line-height: 1.75; }
+  .outcome-text strong {
+    display: block;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 6px;
+    color: var(--ink);
+  }
+
+  /* ── CTA ── */
+  .cta-section {
+    background: var(--gold);
+    color: white;
+    padding: 100px 60px;
+    text-align: center;
+  }
+  .cta-section .section-kicker {
+    justify-content: center;
+    color: rgba(255,255,255,0.7);
+  }
+  .cta-section .section-kicker::before { background: rgba(255,255,255,0.5); }
+  .cta-section h2 {
+    font-size: clamp(2.2rem, 4vw, 3.4rem);
+    color: white;
+    margin-bottom: 20px;
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .cta-sub {
+    font-size: 1.05rem;
+    opacity: 0.85;
+    max-width: 520px;
+    margin: 0 auto 48px;
+    line-height: 1.75;
+  }
+  .cta-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+  .btn-white {
+    background: white;
+    color: var(--gold);
+    padding: 18px 44px;
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: 500;
+    display: inline-block;
+    transition: all 0.2s;
+  }
+  .btn-white:hover { background: var(--ink); color: white; }
+  .btn-outline-white {
+    border: 2px solid rgba(255,255,255,0.5);
+    color: white;
+    padding: 18px 44px;
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: 500;
+    display: inline-block;
+    transition: all 0.2s;
+  }
+  .btn-outline-white:hover { border-color: white; background: rgba(255,255,255,0.1); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--ink);
+    color: #5a5248;
+    padding: 48px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.8rem;
+    letter-spacing: 0.06em;
+    border-top: 1px solid #2a2520;
+  }
+  .footer-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--paper);
+  }
+  .footer-logo span { color: var(--gold); }
+
+  /* ── DIVIDERS ── */
+  .ornament {
+    text-align: center;
+    margin: 0 auto 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    max-width: 360px;
+    color: var(--gold);
+    font-size: 1.1rem;
+  }
+  .ornament::before, .ornament::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .hero-left > * {
+    opacity: 0;
+    animation: fadeUp 0.7s ease forwards;
+  }
+  .hero-kicker { animation-delay: 0.1s; }
+  .hero h1 { animation-delay: 0.25s; }
+  .hero-sub { animation-delay: 0.4s; }
+  .hero-actions { animation-delay: 0.55s; }
+
+  @media (max-width: 1000px) {
+    nav { padding: 18px 24px; }
+    .nav-links { display: none; }
+    .hero { grid-template-columns: 1fr; }
+    .hero-right { display: none; }
+    section { padding: 70px 24px; }
+    .hero-left { padding: 60px 24px; }
+    .problems-grid { grid-template-columns: 1fr; }
+    .cost-bar { grid-template-columns: 1fr; padding: 40px 24px; }
+    .cost-bar-intro { grid-column: span 1; }
+    .services-grid { grid-template-columns: 1fr; }
+    .method-steps { grid-template-columns: 1fr 1fr; }
+    .testi-grid { grid-template-columns: 1fr; }
+    .outcomes-list { grid-template-columns: 1fr; }
+    .about { grid-template-columns: 1fr; }
+    .about-img { min-height: 280px; }
+    .about-content { padding: 48px 24px; }
+    footer { flex-direction: column; gap: 16px; text-align: center; padding: 40px 24px; }
+    .cta-section { padding: 70px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="masthead">Sales Training & Coaching — Storytelling · Humor · Domain Expertise</div>
+
+<nav>
+  <div class="nav-logo">Jon <span>Selig</span></div>
+  <ul class="nav-links">
+    <li><a href="#problems">The Problem</a></li>
+    <li><a href="#services">Programs</a></li>
+    <li><a href="#methodology">Approach</a></li>
+    <li><a href="#outcomes">Outcomes</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Book a Call</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-kicker">For CROs, Sales & Marketing Leaders</div>
+    <h1>Your Reps Know the Product.<br>They've Forgotten<br><em>How to Talk to People.</em></h1>
+    <p class="hero-sub">
+      Jon Selig equips sales teams with the storytelling instincts, humor, and domain fluency that turn forgettable pitches into conversations buyers actually want to have.
+    </p>
+    <div class="hero-actions">
+      <a href="#services" class="btn-primary">See the Programs</a>
+      <a href="#problems" class="btn-secondary">Recognize the Problem</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-stat">
+      <div class="hero-stat-num">60%</div>
+      <div class="hero-stat-label">of companies are actively consolidating their tech stacks — meaning the human conversation is now the last remaining differentiator. <em>(Gartner)</em></div>
+    </div>
+    <div class="hero-divider"></div>
+    <div class="hero-stat">
+      <div class="hero-stat-num">3.8×</div>
+      <div class="hero-stat-label">pipeline coverage — and still struggling to close. More pipeline isn't the problem. What's said in that pipeline is.</div>
+    </div>
+    <div class="hero-divider"></div>
+    <div class="hero-stat">
+      <div class="hero-stat-num">0</div>
+      <div class="hero-stat-label">SKO sessions produce lasting change when they're one-and-done events with no follow-through. The science of behavior change demands more.</div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEMS -->
+<section class="problems" id="problems">
+  <div class="section-kicker">The Real Diagnosis</div>
+  <h2>The Problems Haven't Changed.<br>They've Just Gotten Louder.</h2>
+  <p class="section-intro">
+    Sales leaders across industries are facing the same compounding failures. Here's what they're actually saying — in their own words.
+  </p>
+
+  <div class="problems-grid">
+
+    <div class="problem-item">
+      <div class="problem-num">01</div>
+      <div class="problem-title">Reps Lead with Product, Not Curiosity</div>
+      <div class="problem-desc">Sales reps think products sell themselves. They open with features and skip discovery entirely. BDRs can't get their heads around the fact that they don't need to talk about the product at all in early conversations.</div>
+    </div>
+
+    <div class="problem-item">
+      <div class="problem-num">02</div>
+      <div class="problem-title">Discovery Is Broken</div>
+      <div class="problem-desc">Poor discovery is epidemic. Reps are pitching too much and asking too little — and when they do ask, the questions are surface-level or scripted. Prospects drop nuggets of gold in discussions, but reps are too busy checking boxes to notice.</div>
+    </div>
+
+    <div class="problem-item">
+      <div class="problem-num">03</div>
+      <div class="problem-title">No Empathy for the Buyer</div>
+      <div class="problem-desc">Sellers struggle to deeply understand their personas — not just what buyers do, but why they do it, what keeps them up at night, and what actually matters to their business. Without empathy, every conversation feels transactional.</div>
+    </div>
+
+    <div class="problem-item">
+      <div class="problem-num">04</div>
+      <div class="problem-title">Human Connection Has Atrophied</div>
+      <div class="problem-desc">As tools have taken over, the science of conversations has been lost. Give-and-get exchanges feel transactional. Reps can't hold a room, build rapport, or navigate the emotional terrain of a deal. Meetings need to go better — full stop.</div>
+    </div>
+
+    <div class="problem-item">
+      <div class="problem-num">05</div>
+      <div class="problem-title">Cold Outreach Is Broken</div>
+      <div class="problem-desc">Changing sales math means volume no longer works. Spam filters, dead phone lines, and ignored sequences are wasting budget. Organizations are spending on outbound infrastructure while ignoring the message quality inside it.</div>
+    </div>
+
+    <div class="problem-item">
+      <div class="problem-num">06</div>
+      <div class="problem-title">Weak Business Acumen & Financial Fluency</div>
+      <div class="problem-desc">Reps can't explain why an outcome matters in business terms. They lack the financial acumen to connect value to measurable results — a critical failure in an era of increased spending scrutiny and more demanding economic buyers.</div>
+    </div>
+
+    <div class="problem-item">
+      <div class="problem-num">07</div>
+      <div class="problem-title">Managers Coach Reactively, Not Deliberately</div>
+      <div class="problem-desc">Most coaching is ad hoc or "when asked." Managers don't know how to coach for behavior change — and often don't have the time or tools to do it systematically. The same skills that make a great rep make a great coach, and most managers lack both.</div>
+    </div>
+
+    <div class="problem-item">
+      <div class="problem-num">08</div>
+      <div class="problem-title">Institutional Knowledge Never Reaches the Sales Floor</div>
+      <div class="problem-desc">The company's best insights, customer stories, and competitive intelligence stay locked in the heads of founders and executives. New reps inherit nothing — and onboarding fails to transfer the narrative and domain fluency they desperately need.</div>
+    </div>
+
+    <div class="problem-item">
+      <div class="problem-num">09</div>
+      <div class="problem-title">Can't Navigate to Power or Mobilize Buyers</div>
+      <div class="problem-desc">Reps get stuck in the wrong rooms. They can't navigate to economic buyers, build internal coalitions, or motivate stakeholders to act. "Bias to inaction" from buyers kills deals that should close.</div>
+    </div>
+
+    <div class="problem-item">
+      <div class="problem-num">10</div>
+      <div class="problem-title">Training Is One-and-Done — and Forgotten by Friday</div>
+      <div class="problem-desc">SKO sessions fire people up for 48 hours. Then it's back to the same habits. Without spaced reinforcement and behavior-change design, even the best training content dissolves. Investment is wasted. Nothing sticks.</div>
+    </div>
+
+    <div class="problem-item">
+      <div class="problem-num">11</div>
+      <div class="problem-title">Active Listening Is Practically Extinct</div>
+      <div class="problem-desc">Reps are planning their next sentence while the buyer is still talking. Poor active listening kills discovery, damages relationships, and signals to prospects that they're just another name in a sequence.</div>
+    </div>
+
+    <div class="problem-item">
+      <div class="problem-num">12</div>
+      <div class="problem-title">Methodology Has Been Deployed — Results Haven't Followed</div>
+      <div class="problem-desc">You've invested in Sandler, ValueSelling, MEDDIC, or all three. And yet. The problem isn't the methodology — it's that reps lack the communication skills, storytelling instincts, and domain fluency to apply any framework well.</div>
+    </div>
+
+  </div>
+
+  <div class="cost-bar">
+    <div class="cost-bar-intro">"They have 3.8× pipeline coverage and still can't close. The problem isn't pipeline. It's what's being said inside it."</div>
+    <div>
+      <div class="cost-item-label">Cost of inaction — revenue</div>
+      <div class="cost-item-text">Deals stall, discount-to-close becomes the default, and win rates quietly erode quarter after quarter.</div>
+    </div>
+    <div>
+      <div class="cost-item-label">Cost of inaction — talent</div>
+      <div class="cost-item-text">B-players plateau. A-players leave when they stop growing. Hiring cycles repeat because root causes are never addressed.</div>
+    </div>
+    <div>
+      <div class="cost-item-label">Cost of inaction — market</div>
+      <div class="cost-item-text">As AI commoditizes outreach, the human conversation becomes the only edge left — and most teams are under-investing in it precisely when it matters most.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<div class="about" id="about">
+  <div class="about-img">
+    <div class="about-img-placeholder">
+      <span class="initials">JS</span>
+      <p>Photo of Jon Selig</p>
+    </div>
+  </div>
+  <div class="about-content">
+    <div class="section-kicker">The Practitioner</div>
+    <h2>Jon Selig:<br>The Comedy Writer<br>Who Sells.</h2>
+    <p class="about-body">
+      Jon Selig spent years in enterprise sales before discovering that the skills stand-up comedians use to captivate a room — timing, specificity, empathy, and earned surprise — are exactly the skills that separate forgettable sales reps from the ones buyers actually call back.
+    </p>
+    <p class="about-body">
+      He's not here to tell your team to "be funnier." He's here to install the craft: how to build narratives that resonate, how to use humor as a trust and credibility tool, and how to develop the domain expertise that lets sellers speak like peers — not vendors — in every conversation.
+    </p>
+    <p class="about-body">
+      His work has been deployed across sales, BDR, CS, and sales leadership teams at companies navigating exactly the challenges listed above.
+    </p>
+    <div class="about-credentials">
+      <div class="credential">
+        <span class="credential-icon">✦</span>
+        <span>Former enterprise sales practitioner — trained in the same pressure your team faces daily</span>
+      </div>
+      <div class="credential">
+        <span class="credential-icon">✦</span>
+        <span>Trained comedy writer and performer — applies the structural mechanics of humor to sales communication</span>
+      </div>
+      <div class="credential">
+        <span class="credential-icon">✦</span>
+        <span>Designed programs for reps, BDRs, customer success, and sales leadership — not one-size-fits-all</span>
+      </div>
+      <div class="credential">
+        <span class="credential-icon">✦</span>
+        <span>Every engagement is custom-built around your buyers, your market, and your actual sales conversations</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="section-kicker">Programs & Engagements</div>
+  <h2>How We Work Together</h2>
+  <p class="section-intro">
+    Every engagement is built around your buyers, your sales motion, and the specific moments in your pipeline where human communication is making or breaking deals.
+  </p>
+
+  <div class="services-grid">
+
+    <div class="service-card">
+      <span class="service-tag">Workshops</span>
+      <div class="service-title">Sales Storytelling & Humor Workshops</div>
+      <p class="service-desc">Hands-on, interactive sessions that teach reps the craft of communication — not just theory. Built for full-team delivery at SKOs, QBRs, or as standalone events.</p>
+      <ul class="service-list">
+        <li>Half-day and full-day formats available</li>
+        <li>Channel-specific modules: cold calling, email, LinkedIn, video, in-person</li>
+        <li>Custom exercises using your actual buyers and personas</li>
+        <li>Designed for reps, BDRs, AEs, and CS teams</li>
+        <li>Includes reinforcement assets and practice frameworks</li>
+      </ul>
+    </div>
+
+    <div class="service-card service-featured">
+      <span class="service-tag">Flagship Program</span>
+      <div class="service-badge">Most Popular</div>
+      <div class="service-title">Domain Expertise Accelerator</div>
+      <p class="service-desc">A multi-session engagement that builds genuine buyer fluency across your team — so reps can walk into any room and speak credibly about their buyer's world, challenges, and what's actually at stake.</p>
+      <ul class="service-list">
+        <li>Deep-dive persona research translated into sales narratives</li>
+        <li>Repository of insights, language, and stories built for your team</li>
+        <li>Mid-funnel focus: turning warm interest into committed champions</li>
+        <li>Custom GPT development seeded with your brand, voice, and buyer intel</li>
+        <li>Spaced reinforcement design — not one-and-done</li>
+        <li>Includes sales leadership track</li>
+      </ul>
+    </div>
+
+    <div class="service-card">
+      <span class="service-tag">Consulting</span>
+      <div class="service-title">Sales Leadership Coaching & Advisory</div>
+      <p class="service-desc">Helping CROs, VPs of Sales, and front-line managers build the coaching muscle, storytelling culture, and communication infrastructure their teams need to perform at the next level.</p>
+      <ul class="service-list">
+        <li>Manager coaching: how to coach for behavior change, not just activity</li>
+        <li>Leadership narrative development</li>
+        <li>Institutional knowledge capture and sales-floor transfer</li>
+        <li>Onboarding and ramp program redesign</li>
+        <li>Fractional advisory engagements available</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- METHODOLOGY -->
+<section class="methodology" id="methodology">
+  <div class="section-kicker">The Approach</div>
+  <h2>Why Humor & Storytelling<br>Are Not a Gimmick</h2>
+  <p class="section-intro">
+    Jokes build relationships, trust, rapport, and credibility. That's not an opinion — it's backed by behavioral science and decades of evidence from the highest-stakes communication environments in the world: comedy clubs, boardrooms, and the buyer's office.
+  </p>
+
+  <div class="ornament">✦</div>
+
+  <div class="method-steps">
+    <div class="method-step">
+      <div class="step-num">01</div>
+      <div class="step-title">Diagnose the Conversation</div>
+      <div class="step-desc">We audit real calls, emails, and sequences to find exactly where human connection is breaking down — and map the specific moments where storytelling and humor create an opening.</div>
+    </div>
+    <div class="method-step">
+      <div class="step-num">02</div>
+      <div class="step-title">Build the Narrative Arsenal</div>
+      <div class="step-desc">We mine your best customer stories, domain expertise, and buyer insights to build a library of communication assets your reps can actually use — in calls, emails, and live meetings.</div>
+    </div>
+    <div class="method-step">
+      <div class="step-num">03</div>
+      <div class="step-title">Train the Skills, Not the Script</div>
+      <div class="step-desc">Reps practice the craft — active listening, give-and-get conversations, persona fluency, humor construction — so the skills become instincts, not reminders on a note card.</div>
+    </div>
+    <div class="method-step">
+      <div class="step-num">04</div>
+      <div class="step-title">Reinforce for Behavior Change</div>
+      <div class="step-desc">Spaced practice, manager coaching integration, and ongoing reinforcement ensures skills actually change behavior — not just scores on a post-training quiz.</div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials" id="testimonials">
+  <div class="section-kicker">What Leaders Are Saying</div>
+  <h2>Heard in the Field</h2>
+  <p class="section-intro">From sales leaders who've seen both the problem and the difference a different kind of training makes.</p>
+
+  <div class="testi-grid">
+    <div class="testi-card">
+      <span class="testi-quote-mark">"</span>
+      <p class="testi-text">We had Sandler, ValueSelling, you name it. What we were missing was reps who could actually hold a conversation. Jon gave them that. The methodology finally has something to stick to.</p>
+      <div class="testi-attr">VP of Sales
+        <span>Enterprise SaaS, 45-person revenue team</span>
+      </div>
+    </div>
+    <div class="testi-card">
+      <span class="testi-quote-mark">"</span>
+      <p class="testi-text">I kept telling my managers to coach more. They didn't know how. Jon's work with our leadership team changed that. They're having real coaching conversations now — not just reviewing pipeline.</p>
+      <div class="testi-attr">Chief Revenue Officer
+        <span>Series C, B2B Technology</span>
+      </div>
+    </div>
+    <div class="testi-card">
+      <span class="testi-quote-mark">"</span>
+      <p class="testi-text">Our BDRs were checking boxes instead of listening. After Jon's workshop, the quality of discovery calls changed noticeably. Buyers started staying on the phone longer. That's the metric.</p>
+      <div class="testi-attr">Head of Sales Development
+        <span>Mid-Market Revenue Team</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OUTCOMES -->
+<section class="outcomes" id="outcomes">
+  <div class="section-kicker">What Changes</div>
+  <h2>The Outcomes You're<br>Actually Buying</h2>
+  <p class="section-intro">Not "improved communication skills." Real business outcomes — the kind that show up in win rates, ramp times, and conversations your team is having six months from now.</p>
+
+  <div class="outcomes-list">
+    <div class="outcome-item">
+      <div class="outcome-check">✓</div>
+      <div class="outcome-text">
+        <strong>Reps who open with curiosity, not features</strong>
+        Discovery quality improves when reps understand their buyers deeply enough to ask questions that actually matter — and listen to the answers.
+      </div>
+    </div>
+    <div class="outcome-item">
+      <div class="outcome-check">✓</div>
+      <div class="outcome-text">
+        <strong>Meetings that actually go somewhere</strong>
+        Mid-funnel stalls collapse when sellers can navigate the room, build momentum, and guide buyers toward decisions rather than deferring them.
+      </div>
+    </div>
+    <div class="outcome-item">
+      <div class="outcome-check">✓</div>
+      <div class="outcome-text">
+        <strong>Cold outreach that breaks through</strong>
+        Humor, specificity, and relevance replace volume and templates. Connect rates improve when the message is worth reading.
+      </div>
+    </div>
+    <div class="outcome-item">
+      <div class="outcome-check">✓</div>
+      <div class="outcome-text">
+        <strong>Sales managers who coach for behavior change</strong>
+        Leaders stop managing activity and start developing people — using the same storytelling and conversation skills their reps need to master.
+      </div>
+    </div>
+    <div class="outcome-item">
+      <div class="outcome-check">✓</div>
+      <div class="outcome-text">
+        <strong>Domain fluency that commands credibility</strong>
+        Reps speak the language of their buyers' world — their challenges, financials, and what's actually at stake — not just product specs.
+      </div>
+    </div>
+    <div class="outcome-item">
+      <div class="outcome-check">✓</div>
+      <div class="outcome-text">
+        <strong>Institutional knowledge that reaches the field</strong>
+        Your best stories, insights, and competitive intelligence get systematized into assets reps can use in every conversation — not locked away in leadership's heads.
+      </div>
+    </div>
+    <div class="outcome-item">
+      <div class="outcome-check">✓</div>
+      <div class="outcome-text">
+        <strong>Training that outlasts the SKO</strong>
+        Spaced reinforcement and behavior-change design means skills compound over time instead of evaporating by the following Monday.
+      </div>
+    </div>
+    <div class="outcome-item">
+      <div class="outcome-check">✓</div>
+      <div class="outcome-text">
+        <strong>A human edge in an AI-saturated market</strong>
+        As automation handles more of the pipeline, the reps who can connect, earn trust, and move people will be the only ones who matter.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="contact">
+  <div class="section-kicker">Let's Talk</div>
+  <h2>Start with a Conversation.<br>That's Kind of the Point.</h2>
+  <p class="cta-sub">
+    If you're seeing these problems in your team and want to understand what a custom engagement looks like, book a 30-minute call. No deck. No pitch. Just a conversation.
+  </p>
+  <div class="cta-buttons">
+    <a href="mailto:jon@jonselig.com" class="btn-white">Book a Discovery Call</a>
+    <a href="#services" class="btn-outline-white">Explore the Programs</a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">Jon <span>Selig</span></div>
+  <div>Comedy Writing for Sales Teams — Storytelling · Humor · Domain Expertise</div>
+  <div>© 2025 Jon Selig. All rights reserved.</div>
+</footer>
+
+</body>
+</html>
